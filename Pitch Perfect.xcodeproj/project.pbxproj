@@ -13,6 +13,9 @@
 		26DC70611AB02C62003D196F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26DC70601AB02C62003D196F /* Images.xcassets */; };
 		26DC70641AB02C62003D196F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DC70621AB02C62003D196F /* LaunchScreen.xib */; };
 		26DC70701AB02C62003D196F /* Pitch_PerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC706F1AB02C62003D196F /* Pitch_PerfectTests.swift */; };
+		26DC707A1AB574CB003D196F /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC70791AB574CB003D196F /* PlaySoundsViewController.swift */; };
+		26DC707C1AB5ADFE003D196F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DC707B1AB5ADFE003D196F /* AVFoundation.framework */; };
+		26DC70801AB5B3B3003D196F /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DC707F1AB5B3B3003D196F /* movie_quote.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		26DC70691AB02C62003D196F /* Pitch PerfectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch PerfectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DC706E1AB02C62003D196F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26DC706F1AB02C62003D196F /* Pitch_PerfectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch_PerfectTests.swift; sourceTree = "<group>"; };
+		26DC70791AB574CB003D196F /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
+		26DC707B1AB5ADFE003D196F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		26DC707F1AB5B3B3003D196F /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = movie_quote.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26DC707C1AB5ADFE003D196F /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +66,7 @@
 		26DC704B1AB02C62003D196F = {
 			isa = PBXGroup;
 			children = (
+				26DC707B1AB5ADFE003D196F /* AVFoundation.framework */,
 				26DC70561AB02C62003D196F /* Pitch Perfect */,
 				26DC706C1AB02C62003D196F /* Pitch PerfectTests */,
 				26DC70551AB02C62003D196F /* Products */,
@@ -80,6 +88,7 @@
 				26DC70591AB02C62003D196F /* AppDelegate.swift */,
 				26DC705B1AB02C62003D196F /* ViewController.swift */,
 				26DC705D1AB02C62003D196F /* Main.storyboard */,
+				26DC70791AB574CB003D196F /* PlaySoundsViewController.swift */,
 				26DC70601AB02C62003D196F /* Images.xcassets */,
 				26DC70621AB02C62003D196F /* LaunchScreen.xib */,
 				26DC70571AB02C62003D196F /* Supporting Files */,
@@ -90,6 +99,7 @@
 		26DC70571AB02C62003D196F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				26DC707F1AB5B3B3003D196F /* movie_quote.mp3 */,
 				26DC70581AB02C62003D196F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -194,6 +204,7 @@
 			files = (
 				26DC705F1AB02C62003D196F /* Main.storyboard in Resources */,
 				26DC70641AB02C62003D196F /* LaunchScreen.xib in Resources */,
+				26DC70801AB5B3B3003D196F /* movie_quote.mp3 in Resources */,
 				26DC70611AB02C62003D196F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26DC705C1AB02C62003D196F /* ViewController.swift in Sources */,
+				26DC707A1AB574CB003D196F /* PlaySoundsViewController.swift in Sources */,
 				26DC705A1AB02C62003D196F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
