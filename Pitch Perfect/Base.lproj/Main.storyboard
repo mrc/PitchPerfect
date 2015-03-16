@@ -38,7 +38,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dyO-I4-9Ir" kind="show" id="mqK-TR-ZBI"/>
+                                    <action selector="stopRecording:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kpi-iq-2Ar"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -87,6 +87,7 @@
                         <outlet property="recordButton" destination="v9u-uT-9If" id="HX4-iC-FXR"/>
                         <outlet property="recordingInProgress" destination="dTH-zW-ymd" id="889-5Z-kvs"/>
                         <outlet property="stopButton" destination="5lL-FE-gMc" id="zhJ-bQ-6Yg"/>
+                        <segue destination="dyO-I4-9Ir" kind="show" identifier="stopRecording" id="jv3-6f-I4C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
