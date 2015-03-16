@@ -122,9 +122,20 @@
                                     <action selector="playSoundQuickly:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="VWo-8x-x63"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nus-eh-9rA">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopSound:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="cG0-NV-JFg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.099508819809999996" green="0.65220760229999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Nus-eh-9rA" secondAttribute="centerX" id="8S9-uZ-4CX"/>
+                            <constraint firstItem="0tr-Ft-3n8" firstAttribute="top" secondItem="Nus-eh-9rA" secondAttribute="bottom" constant="58" id="b3p-Fc-cyI"/>
                             <constraint firstItem="Bec-TP-VzO" firstAttribute="leading" secondItem="bsc-9g-pxg" secondAttribute="leadingMargin" constant="30" id="eUF-C8-LgI"/>
                             <constraint firstItem="qQS-bo-ubx" firstAttribute="top" secondItem="oEj-xo-F8t" secondAttribute="bottom" constant="50" id="l0K-iZ-5Gd"/>
                             <constraint firstItem="Bec-TP-VzO" firstAttribute="top" secondItem="oEj-xo-F8t" secondAttribute="bottom" constant="50" id="nYb-P4-cUN"/>
@@ -134,24 +145,30 @@
                             <mask key="subviews">
                                 <exclude reference="Bec-TP-VzO"/>
                                 <exclude reference="qQS-bo-ubx"/>
+                                <exclude reference="Nus-eh-9rA"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="eUF-C8-LgI"/>
                                 <exclude reference="nYb-P4-cUN"/>
                                 <exclude reference="l0K-iZ-5Gd"/>
                                 <exclude reference="x92-xX-CLd"/>
+                                <exclude reference="8S9-uZ-4CX"/>
+                                <exclude reference="b3p-Fc-cyI"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Bec-TP-VzO"/>
                                 <include reference="qQS-bo-ubx"/>
+                                <include reference="Nus-eh-9rA"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="eUF-C8-LgI"/>
                                 <include reference="nYb-P4-cUN"/>
                                 <include reference="l0K-iZ-5Gd"/>
                                 <include reference="x92-xX-CLd"/>
+                                <include reference="8S9-uZ-4CX"/>
+                                <include reference="b3p-Fc-cyI"/>
                             </mask>
                         </variation>
                     </view>
