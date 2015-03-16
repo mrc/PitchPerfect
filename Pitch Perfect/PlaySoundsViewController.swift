@@ -18,7 +18,7 @@ class PlaySoundsViewController: UIViewController {
         super.viewDidLoad()
         
         if let path = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3") {
-            let url = NSURL(fileURLWithPath: path)
+            let url = NSURL.fileURLWithPath(path)
             
             AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
             AVAudioSession.sharedInstance().setActive(true, error: nil)
@@ -35,12 +35,14 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func playSoundSlowly(sender: UIButton) {
+        audioPlayer.stop()
         audioPlayer.rate = 0.5
         audioPlayer.prepareToPlay()
         audioPlayer.play()
     }
     
     @IBAction func playSoundQuickly(sender: AnyObject) {
+        audioPlayer.stop()
         audioPlayer.rate = 2.0
         audioPlayer.prepareToPlay()
         audioPlayer.play()

@@ -113,23 +113,22 @@
                                     <action selector="playSoundSlowly:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="5mk-fz-Y2D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQS-bo-ubx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQS-bo-ubx">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="fast">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="246" y="155" width="46" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="playSoundQuickly:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="VWo-8x-x63"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.099508819809999996" green="0.65220760229999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Bec-TP-VzO" firstAttribute="leading" secondItem="bsc-9g-pxg" secondAttribute="leadingMargin" constant="30" id="eUF-C8-LgI"/>
+                            <constraint firstItem="qQS-bo-ubx" firstAttribute="top" secondItem="oEj-xo-F8t" secondAttribute="bottom" constant="50" id="l0K-iZ-5Gd"/>
                             <constraint firstItem="Bec-TP-VzO" firstAttribute="top" secondItem="oEj-xo-F8t" secondAttribute="bottom" constant="50" id="nYb-P4-cUN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qQS-bo-ubx" secondAttribute="trailing" constant="30" id="x92-xX-CLd"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -139,6 +138,8 @@
                             <mask key="constraints">
                                 <exclude reference="eUF-C8-LgI"/>
                                 <exclude reference="nYb-P4-cUN"/>
+                                <exclude reference="l0K-iZ-5Gd"/>
+                                <exclude reference="x92-xX-CLd"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -149,6 +150,8 @@
                             <mask key="constraints">
                                 <include reference="eUF-C8-LgI"/>
                                 <include reference="nYb-P4-cUN"/>
+                                <include reference="l0K-iZ-5Gd"/>
+                                <include reference="x92-xX-CLd"/>
                             </mask>
                         </variation>
                     </view>
@@ -177,6 +180,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="fast" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="slow" width="100" height="100"/>
         <image name="stop" width="50" height="50"/>
