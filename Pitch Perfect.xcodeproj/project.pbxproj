@@ -14,7 +14,6 @@
 		26DC70641AB02C62003D196F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DC70621AB02C62003D196F /* LaunchScreen.xib */; };
 		26DC70701AB02C62003D196F /* Pitch_PerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC706F1AB02C62003D196F /* Pitch_PerfectTests.swift */; };
 		26DC707A1AB574CB003D196F /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC70791AB574CB003D196F /* PlaySoundsViewController.swift */; };
-		26DC707C1AB5ADFE003D196F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DC707B1AB5ADFE003D196F /* AVFoundation.framework */; };
 		26DC70801AB5B3B3003D196F /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DC707F1AB5B3B3003D196F /* movie_quote.mp3 */; };
 		26DC70821AB6EB6B003D196F /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC70811AB6EB6B003D196F /* RecordedAudio.swift */; };
 /* End PBXBuildFile section */
@@ -51,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26DC707C1AB5ADFE003D196F /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +172,7 @@
 				TargetAttributes = {
 					26DC70531AB02C62003D196F = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8URA3TGGU4;
 					};
 					26DC70681AB02C62003D196F = {
 						CreatedOnToolsVersion = 6.2;
@@ -352,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Pitch Perfect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -362,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Pitch Perfect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -421,6 +422,7 @@
 				26DC70751AB02C62003D196F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26DC70761AB02C62003D196F /* Build configuration list for PBXNativeTarget "Pitch PerfectTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +431,7 @@
 				26DC70781AB02C62003D196F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

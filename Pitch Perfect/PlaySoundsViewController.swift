@@ -12,7 +12,11 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
     
+    var audioEngine: AVAudioEngine!
     var audioPlayer: AVAudioPlayer!
+    var audioPlayerNode: AVAudioPlayerNode!
+    var auTimePitch: AVAudioUnitTimePitch!
+    var audioFile: AVAudioFile!
     var receivedAudio: RecordedAudio!
 
     override func viewDidLoad() {
@@ -23,6 +27,19 @@ class PlaySoundsViewController: UIViewController {
         
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioPlayer.enableRate = true
+        
+        // Set up audio engine for variable pitch playback.
+        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
+        audioEngine = AVAudioEngine()
+        
+        audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+
+        auTimePitch = AVAudioUnitTimePitch()
+        audioEngine.attachNode(auTimePitch)
+        
+        audioEngine.connect(audioPlayerNode, to: auTimePitch, format: nil)
+        audioEngine.connect(auTimePitch, to: audioEngine.outputNode, format: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,20 +48,42 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func playSoundSlowly(sender: UIButton) {
-        audioPlayer.stop()
+        stopAllPlayers()
         audioPlayer.rate = 0.5
         audioPlayer.prepareToPlay()
         audioPlayer.play()
     }
     
     @IBAction func playSoundQuickly(sender: AnyObject) {
-        audioPlayer.stop()
+        stopAllPlayers()
         audioPlayer.rate = 2.0
         audioPlayer.prepareToPlay()
         audioPlayer.play()
     }
     
-    @IBAction func stopSound(sender: AnyObject) {
-        audioPlayer.stop()
+    func playSoundWithPitch(pitch: Float) {
+        stopAllPlayers()
+        auTimePitch.pitch = pitch
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        audioEngine.startAndReturnError(nil)
+        audioPlayerNode.play()
     }
+    
+    @IBAction func playSoundHigh(sender: AnyObject) {
+        playSoundWithPitch(1000)
+    }
+    
+    @IBAction func playSoundLow(sender: AnyObject) {
+        playSoundWithPitch(-1000)
+    }
+    
+    func stopAllPlayers() {
+        audioPlayer.stop()
+        audioPlayerNode.stop()
+    }
+    
+    @IBAction func stopSound(sender: AnyObject) {
+        stopAllPlayers()
+    }
+
 }
