@@ -48,12 +48,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func recordAudio(sender: AnyObject) {
         showRecordingInProgress()
 
+        // Always use the same filename for recording, to avoid "leaking" files.
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        
-        let currentDateTime = NSDate()
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "ddMMyyyy-HHmmss"
-        let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
+        let recordingName = "recording.wav"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
         println(filePath)
@@ -76,6 +73,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         if flag {
+            // Pass the recorded audio on to the next view.
             let url = recorder.url
             recordedAudio = RecordedAudio(title: url.lastPathComponent!, url: url)
             
@@ -86,9 +84,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "stopRecording" {
+            // Set up the PlaySoundsViewController with the recorded audio.
             let psvc = segue.destinationViewController as PlaySoundsViewController
             let data = sender as RecordedAudio
             psvc.receivedAudio = data
