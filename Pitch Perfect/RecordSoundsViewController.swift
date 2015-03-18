@@ -11,7 +11,7 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
-    @IBOutlet weak var recordingInProgress: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     
@@ -25,9 +25,19 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        recordingInProgress.hidden = true
+        showReadyToRecord()
+    }
+    
+    func showReadyToRecord() {
+        statusLabel.text = "Tap to record"
         stopButton.hidden = true
         recordButton.enabled = true
+    }
+    
+    func showRecordingInProgress() {
+        statusLabel.text = "Recording in progress"
+        stopButton.hidden = false
+        recordButton.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,10 +46,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func recordAudio(sender: AnyObject) {
-        recordingInProgress.hidden = false
-        stopButton.hidden = false
-        recordButton.enabled = false
-        
+        showRecordingInProgress()
+
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
         let currentDateTime = NSDate()
@@ -75,9 +83,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             performSegueWithIdentifier("stopRecording", sender: recordedAudio)
         } else {
             println("error: did not finish recording successfully")
-            recordButton.enabled = true
-            stopButton.hidden = true
-            recordingInProgress.hidden = true
+            showReadyToRecord()
         }
     }
     

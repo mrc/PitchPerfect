@@ -27,11 +27,14 @@
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oQG-DF-yHg"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTH-zW-ymd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--status--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTH-zW-ymd">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="155" y="394" width="91" height="18"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lL-FE-gMc">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -86,7 +89,7 @@
                     <navigationItem key="navigationItem" title="Record" id="U1F-u1-drf"/>
                     <connections>
                         <outlet property="recordButton" destination="v9u-uT-9If" id="HX4-iC-FXR"/>
-                        <outlet property="recordingInProgress" destination="dTH-zW-ymd" id="889-5Z-kvs"/>
+                        <outlet property="statusLabel" destination="dTH-zW-ymd" id="GjW-4a-hee"/>
                         <outlet property="stopButton" destination="5lL-FE-gMc" id="zhJ-bQ-6Yg"/>
                         <segue destination="dyO-I4-9Ir" kind="show" identifier="stopRecording" id="jv3-6f-I4C"/>
                     </connections>
