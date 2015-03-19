@@ -16,6 +16,7 @@ class PlaySoundsViewController: UIViewController {
     var audioPlayer: AVAudioPlayer!
     var audioPlayerNode: AVAudioPlayerNode!
     var auTimePitch: AVAudioUnitTimePitch!
+    var auDelay: AVAudioUnitDelay!
     var audioFile: AVAudioFile!
     var receivedAudio: RecordedAudio!
 
@@ -28,18 +29,24 @@ class PlaySoundsViewController: UIViewController {
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioPlayer.enableRate = true
         
-        // Set up audio engine for variable pitch playback.
-        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
+        // Set up audio engine for effect playback.
         audioEngine = AVAudioEngine()
-        
         audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
-
+        
+        // Set up pitch effect
         auTimePitch = AVAudioUnitTimePitch()
         audioEngine.attachNode(auTimePitch)
-        
+
+        // set up delay effect
+        auDelay = AVAudioUnitDelay()
+        audioEngine.attachNode(auDelay)
+
         audioEngine.connect(audioPlayerNode, to: auTimePitch, format: nil)
-        audioEngine.connect(auTimePitch, to: audioEngine.outputNode, format: nil)
+        audioEngine.connect(auTimePitch, to: auDelay, format: nil)
+        audioEngine.connect(auDelay, to: audioEngine.outputNode, format: nil)
+
+        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,6 +58,7 @@ class PlaySoundsViewController: UIViewController {
         stopAllPlayers()
         audioPlayer.rate = rate
         audioPlayer.prepareToPlay()
+        audioPlayer.currentTime = 0
         audioPlayer.play()
     }
     
@@ -64,7 +72,26 @@ class PlaySoundsViewController: UIViewController {
     
     func playSoundWithPitch(pitch: Float) {
         stopAllPlayers()
+        
+        // Play sound with pitch effect
+        auTimePitch.bypass = false
+        auDelay.bypass = true
+        
         auTimePitch.pitch = pitch
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        audioEngine.startAndReturnError(nil)
+        audioPlayerNode.play()
+    }
+    
+    func playSoundWithEcho(delayTime: NSTimeInterval, feedback: Float) {
+        stopAllPlayers()
+        
+        // Play sound with delay effect
+        auTimePitch.bypass = true
+        auDelay.bypass = false
+        
+        auDelay.delayTime = delayTime
+        auDelay.feedback = feedback
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         audioEngine.startAndReturnError(nil)
         audioPlayerNode.play()
@@ -78,9 +105,19 @@ class PlaySoundsViewController: UIViewController {
         playSoundWithPitch(-1000)
     }
     
+    @IBAction func playSoundWithLongEcho(sender: AnyObject) {
+        playSoundWithEcho(1.0, feedback: 50)
+    }
+    
+    @IBAction func playSoundWithShortEcho(sender: AnyObject) {
+        playSoundWithEcho(0.15, feedback: 85)
+    }
+    
     func stopAllPlayers() {
         audioPlayer.stop()
         audioPlayerNode.stop()
+        auTimePitch.reset()
+        auDelay.reset()
     }
     
     @IBAction func stopSound(sender: AnyObject) {
