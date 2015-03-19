@@ -20,7 +20,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         // Always use the same filename for recording, to avoid "leaking" files.
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
@@ -32,6 +31,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         var session = AVAudioSession.sharedInstance()
         session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
         
+        // Set up the recorder and get it ready for recording.
         audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
         audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
@@ -62,9 +62,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction func recordAudio(sender: AnyObject) {
         showRecordingInProgress()
-
-
         audioRecorder.record()
+    }
+    
+    @IBAction func pauseRecording(sender: AnyObject) {
+        
     }
     
     @IBAction func stopRecording(sender: AnyObject) {
