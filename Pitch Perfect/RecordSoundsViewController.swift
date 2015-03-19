@@ -14,6 +14,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
     
     var audioRecorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
@@ -44,14 +45,23 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func showReadyToRecord() {
-        statusLabel.text = "Tap to record"
+        statusLabel.text = "Tap the microphone to record"
         stopButton.hidden = true
+        pauseButton.hidden = true
         recordButton.enabled = true
     }
     
     func showRecordingInProgress() {
         statusLabel.text = "Recording in progress"
         stopButton.hidden = false
+        pauseButton.hidden = false
+        recordButton.enabled = false
+    }
+    
+    func showRecordingPaused() {
+        statusLabel.text = "Recording paused"
+        stopButton.hidden = false
+        pauseButton.hidden = false
         recordButton.enabled = false
     }
 
@@ -66,7 +76,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func pauseRecording(sender: AnyObject) {
-        
+        if audioRecorder.recording {
+            audioRecorder.pause()
+            showRecordingPaused()
+        } else {
+            audioRecorder.record()
+            showRecordingInProgress()
+        }
     }
     
     @IBAction func stopRecording(sender: AnyObject) {
