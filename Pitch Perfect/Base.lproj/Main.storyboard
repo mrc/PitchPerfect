@@ -18,6 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--status--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTH-zW-ymd">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="263" y="481" width="74" height="18"/>
+                                </variation>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9u-uT-9If">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="microphone">
@@ -27,17 +36,14 @@
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oQG-DF-yHg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--status--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTH-zW-ymd">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lL-FE-gMc">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="stop">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="275" y="730" width="50" height="50"/>
+                                </variation>
                                 <connections>
                                     <action selector="stopRecording:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kpi-iq-2Ar"/>
                                 </connections>
@@ -47,6 +53,9 @@
                                 <state key="normal" image="pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="275" y="672" width="50" height="50"/>
+                                </variation>
                                 <connections>
                                     <action selector="pauseRecording:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="syE-jv-ysj"/>
                                 </connections>
@@ -65,8 +74,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="v9u-uT-9If"/>
                                 <exclude reference="dTH-zW-ymd"/>
+                                <exclude reference="v9u-uT-9If"/>
                                 <exclude reference="5lL-FE-gMc"/>
                                 <exclude reference="x6R-aK-oaS"/>
                             </mask>
@@ -81,10 +90,28 @@
                                 <exclude reference="JNd-y1-y3L"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="dTH-zW-ymd"/>
+                                <include reference="v9u-uT-9If"/>
+                                <include reference="5lL-FE-gMc"/>
+                                <include reference="x6R-aK-oaS"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="QT6-cm-NZZ"/>
+                                <include reference="dJd-lr-UpU"/>
+                                <include reference="c4a-e6-ZJr"/>
+                                <include reference="qr6-Cr-Rv7"/>
+                                <include reference="JWs-oW-wld"/>
+                                <include reference="FCi-1m-pKo"/>
+                                <include reference="WZN-hE-0Ml"/>
+                                <include reference="JNd-y1-y3L"/>
+                            </mask>
+                        </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="v9u-uT-9If"/>
                                 <include reference="dTH-zW-ymd"/>
+                                <include reference="v9u-uT-9If"/>
                                 <include reference="5lL-FE-gMc"/>
                                 <include reference="x6R-aK-oaS"/>
                             </mask>
@@ -130,6 +157,9 @@
                                 <state key="normal" image="slow">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="76" y="104" width="100" height="100"/>
+                                </variation>
                                 <connections>
                                     <action selector="playSoundSlowly:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="5mk-fz-Y2D"/>
                                 </connections>
@@ -139,17 +169,11 @@
                                 <state key="normal" image="fast">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="424" y="104" width="100" height="100"/>
+                                </variation>
                                 <connections>
                                     <action selector="playSoundQuickly:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="VWo-8x-x63"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nus-eh-9rA">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopSound:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="cG0-NV-JFg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fE-s1-OW1">
@@ -157,6 +181,9 @@
                                 <state key="normal" image="chipmunk">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="76" y="264" width="100" height="100"/>
+                                </variation>
                                 <connections>
                                     <action selector="playSoundHigh:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="NEA-hb-vSn"/>
                                 </connections>
@@ -166,6 +193,9 @@
                                 <state key="normal" image="darth">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="424" y="264" width="100" height="100"/>
+                                </variation>
                                 <connections>
                                     <action selector="playSoundLow:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="Nck-Eg-Vg7"/>
                                 </connections>
@@ -175,6 +205,9 @@
                                 <state key="normal" image="echo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="76" y="424" width="100" height="100"/>
+                                </variation>
                                 <connections>
                                     <action selector="playSoundWithLongEcho:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="L5d-Hw-dNg"/>
                                 </connections>
@@ -184,8 +217,23 @@
                                 <state key="normal" image="short-echo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="424" y="424" width="100" height="100"/>
+                                </variation>
                                 <connections>
                                     <action selector="playSoundWithShortEcho:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="rBd-5j-RBs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nus-eh-9rA">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="275" y="690" width="50" height="50"/>
+                                </variation>
+                                <connections>
+                                    <action selector="stopSound:" destination="dyO-I4-9Ir" eventType="touchUpInside" id="cG0-NV-JFg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -210,11 +258,11 @@
                             <mask key="subviews">
                                 <exclude reference="Bec-TP-VzO"/>
                                 <exclude reference="qQS-bo-ubx"/>
-                                <exclude reference="Nus-eh-9rA"/>
                                 <exclude reference="1fE-s1-OW1"/>
                                 <exclude reference="gJe-Gs-z2v"/>
                                 <exclude reference="VIb-iu-PhN"/>
                                 <exclude reference="0lH-em-WBH"/>
+                                <exclude reference="Nus-eh-9rA"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="eUF-C8-LgI"/>
@@ -233,15 +281,42 @@
                                 <exclude reference="b3p-Fc-cyI"/>
                             </mask>
                         </variation>
-                        <variation key="widthClass=compact">
+                        <variation key="heightClass=regular">
                             <mask key="subviews">
                                 <include reference="Bec-TP-VzO"/>
                                 <include reference="qQS-bo-ubx"/>
-                                <include reference="Nus-eh-9rA"/>
                                 <include reference="1fE-s1-OW1"/>
                                 <include reference="gJe-Gs-z2v"/>
                                 <include reference="VIb-iu-PhN"/>
                                 <include reference="0lH-em-WBH"/>
+                                <include reference="Nus-eh-9rA"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="eUF-C8-LgI"/>
+                                <include reference="nYb-P4-cUN"/>
+                                <include reference="Mr5-De-JGY"/>
+                                <include reference="g9t-oQ-iq8"/>
+                                <include reference="l0K-iZ-5Gd"/>
+                                <include reference="x92-xX-CLd"/>
+                                <include reference="LhQ-9M-O0w"/>
+                                <include reference="kED-bw-uP2"/>
+                                <include reference="7F2-OY-YB2"/>
+                                <include reference="CXf-aF-BWl"/>
+                                <include reference="7VG-cO-n3Y"/>
+                                <include reference="qUE-VA-6KA"/>
+                                <include reference="8S9-uZ-4CX"/>
+                                <include reference="b3p-Fc-cyI"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Bec-TP-VzO"/>
+                                <include reference="qQS-bo-ubx"/>
+                                <include reference="1fE-s1-OW1"/>
+                                <include reference="gJe-Gs-z2v"/>
+                                <include reference="VIb-iu-PhN"/>
+                                <include reference="0lH-em-WBH"/>
+                                <include reference="Nus-eh-9rA"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="eUF-C8-LgI"/>
